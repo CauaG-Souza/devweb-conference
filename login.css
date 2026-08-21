@@ -1,0 +1,418 @@
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   VARIÁVEIS
+======================================== */
+
+:root {
+    --roxo: #8b5cf6;
+    --roxo-escuro: #6d28d9;
+    --roxo-claro: #a78bfa;
+
+    --ciano: #22d3ee;
+
+    --fundo: #08030f;
+
+    --texto: #f5f3ff;
+    --texto-secundario: #c4b5fd;
+
+    --borda: rgba(255, 255, 255, 0.13);
+}
+
+
+/* ========================================
+   BODY
+======================================== */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+
+    color: var(--texto);
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(124, 58, 237, 0.28),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(34, 211, 238, 0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #08030f 0%,
+            #17052e 50%,
+            #090514 100%
+        );
+
+    background-attachment: fixed;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+header {
+    padding: 35px 20px;
+
+    text-align: center;
+
+    font-size: 1.8rem;
+    font-weight: 700;
+
+    color: white;
+
+    background: rgba(8, 3, 15, 0.7);
+
+    border-bottom: 1px solid var(--borda);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+
+/* ========================================
+   MAIN
+======================================== */
+
+main {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 20px;
+}
+
+
+/* ========================================
+   CARD DE LOGIN
+======================================== */
+
+#login {
+    width: min(430px, 100%);
+
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.45);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    animation: aparecer 0.6s ease;
+}
+
+
+/* ========================================
+   TÍTULO DO CARD
+======================================== */
+
+#login::before {
+    content: "Bem-vindo de volta!";
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    text-align: center;
+
+    font-size: 1.7rem;
+    font-weight: 700;
+
+    color: white;
+}
+
+#login::after {
+    content: "Entre para acessar sua conta";
+
+    display: block;
+
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.95rem;
+}
+
+
+/* ========================================
+   FIELDSET
+======================================== */
+
+fieldset {
+    padding: 25px;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 16px;
+
+    background: rgba(0, 0, 0, 0.12);
+}
+
+legend {
+    padding: 0 10px;
+
+    color: var(--roxo-claro);
+
+    font-weight: bold;
+}
+
+
+/* ========================================
+   CAMPOS
+======================================== */
+
+form p {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #eeeaff;
+
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    color: white;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 1rem;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* ========================================
+   PLACEHOLDER
+======================================== */
+
+input::placeholder {
+    color: #918aa5;
+}
+
+
+/* ========================================
+   FOCO
+======================================== */
+
+input:focus {
+    border-color: var(--roxo-claro);
+
+    background: rgba(139, 92, 246, 0.09);
+
+    box-shadow:
+        0 0 0 4px rgba(139, 92, 246, 0.12);
+}
+
+
+/* ========================================
+   BOTÃO
+======================================== */
+
+button {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 15px 20px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--roxo),
+            var(--roxo-escuro)
+        );
+
+    border: none;
+
+    border-radius: 11px;
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(109, 40, 217, 0.3);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    filter: brightness(1.1);
+
+    box-shadow:
+        0 15px 40px rgba(139, 92, 246, 0.45);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    color: #a8a1ba;
+
+    background: rgba(0, 0, 0, 0.3);
+
+    border-top: 1px solid var(--borda);
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: var(--roxo-claro);
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease;
+}
+
+footer a:hover {
+    color: var(--ciano);
+}
+
+
+/* ========================================
+   ACESSIBILIDADE
+======================================== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--ciano);
+    outline-offset: 3px;
+}
+
+
+/* ========================================
+   ANIMAÇÃO
+======================================== */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 500px) {
+
+    header {
+        padding: 25px 15px;
+
+        font-size: 1.5rem;
+    }
+
+    main {
+        padding: 35px 15px;
+    }
+
+    #login {
+        padding: 25px 20px;
+
+        border-radius: 20px;
+    }
+
+    fieldset {
+        padding: 20px 16px;
+    }
+
+    #login::before {
+        font-size: 1.45rem;
+    }
+}
+
+
+/* ========================================
+   REDUZIR ANIMAÇÕES
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
