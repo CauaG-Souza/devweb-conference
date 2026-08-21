@@ -1,16 +1,684 @@
+/* ================================
+   RESET
+================================ */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
-    background-image: linear-gradient(135deg, #090514 0%, #200273 100%, #090514 0%) !important;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #f5f3ff;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(124, 58, 237, 0.25), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(6, 182, 212, 0.15), transparent 30%),
+        linear-gradient(135deg, #08030f 0%, #17052e 45%, #090514 100%);
+
     background-attachment: fixed;
+}
+
+
+/* ================================
+   VARIÁVEIS
+================================ */
+
+:root {
+    --roxo: #8b5cf6;
+    --roxo-claro: #a78bfa;
+    --roxo-escuro: #6d28d9;
+
+    --ciano: #22d3ee;
+
+    --fundo-card: rgba(255, 255, 255, 0.06);
+    --borda: rgba(255, 255, 255, 0.12);
+
+    --texto: #f5f3ff;
+    --texto-secundario: #c4b5fd;
+
+    --sombra:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+header {
+    position: relative;
+    text-align: center;
+    padding: 100px 20px 80px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(91, 33, 182, 0.55),
+            rgba(8, 3, 15, 0.9)
+        );
+
+    border-bottom: 1px solid var(--borda);
+    overflow: hidden;
+}
+
+/* Brilho decorativo */
+
+header::before {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: -150px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: var(--roxo);
+    filter: blur(120px);
+    opacity: 0.35;
+}
+
+header h1,
+header p {
+    position: relative;
+    z-index: 1;
+}
+
+header h1 {
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #c4b5fd,
+        #67e8f9
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+header p {
+    max-width: 700px;
+    margin: auto;
+
+    color: #ddd6fe;
+    font-size: 1.1rem;
+}
+
+
+/* ================================
+   NAVBAR
+================================ */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    padding: 14px 20px;
+
+    background: rgba(8, 3, 15, 0.82);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--borda);
+}
+
+nav a {
+    position: relative;
+
+    padding: 9px 15px;
+
+    color: #ddd6fe;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    border-radius: 10px;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+nav a:hover {
+    color: white;
+    background: rgba(139, 92, 246, 0.18);
+    transform: translateY(-2px);
+}
+
+nav a:last-child {
+    background: linear-gradient(
+        135deg,
+        var(--roxo),
+        var(--roxo-escuro)
+    );
+
+    color: white;
+
+    box-shadow:
+        0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+nav a:last-child:hover {
+    background: linear-gradient(
+        135deg,
+        #a78bfa,
+        #7c3aed
+    );
+}
+
+
+/* ================================
+   MAIN
+================================ */
+
+main {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+
+/* ================================
+   SEÇÕES
+================================ */
+
+section {
+    position: relative;
+
+    margin: 70px 0;
+    padding: 50px;
+
+    text-align: center;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+    border-radius: 24px;
+
+    box-shadow: var(--sombra);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+section h2 {
+    margin-bottom: 25px;
+
+    font-size: clamp(2rem, 4vw, 2.8rem);
+
+    color: white;
+}
+
+section h2::after {
+    content: "";
+
+    display: block;
+
+    width: 60px;
+    height: 4px;
+
+    margin: 12px auto 0;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        var(--roxo),
+        var(--ciano)
+    );
+}
+
+section p {
+    max-width: 800px;
+    margin: 0 auto 18px;
+
+    color: #d8d3e8;
+}
+
+
+/* ================================
+   IMAGEM
+================================ */
+
+section img {
+    display: block;
+
+    width: min(600px, 100%);
+    height: auto;
+
+    margin: 35px auto 0;
+
+    border-radius: 18px;
+
+    border: 1px solid var(--borda);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+section img:hover {
+    transform: scale(1.02);
+
+    box-shadow:
+        0 25px 60px rgba(139, 92, 246, 0.25);
+}
+
+
+/* ================================
+   PALESTRAS
+================================ */
+
+#palestras article {
+    text-align: left;
+
+    margin-top: 25px;
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+#palestras article:hover {
+    transform: translateY(-6px);
+
+    background: rgba(139, 92, 246, 0.1);
+
+    border-color: rgba(167, 139, 250, 0.4);
+}
+
+#palestras article h3 {
+    margin-bottom: 10px;
+
+    color: #ffffff;
+    font-size: 1.35rem;
+}
+
+#palestras article strong {
+    color: var(--ciano);
+}
+
+
+/* ================================
+   TABELA
+================================ */
+
+table {
+    width: 100%;
+
+    margin-top: 30px;
+
+    border-collapse: collapse;
+    overflow: hidden;
+
+    background: rgba(0, 0, 0, 0.2);
+
+    border-radius: 15px;
+}
+
+caption {
+    margin-bottom: 15px;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.95rem;
+}
+
+th,
+td {
+    padding: 17px 15px;
+
+    border-bottom: 1px solid var(--borda);
+
+    text-align: left;
+}
+
+th {
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        rgba(109, 40, 217, 0.7),
+        rgba(91, 33, 182, 0.5)
+    );
+}
+
+td {
+    color: #ddd6fe;
+}
+
+tbody tr {
+    transition: background 0.25s ease;
+}
+
+tbody tr:hover {
+    background: rgba(139, 92, 246, 0.1);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ================================
+   FORMULÁRIO
+================================ */
+
+form {
+    max-width: 650px;
+    margin: 30px auto 0;
+
+    text-align: left;
+}
+
+fieldset {
+    padding: 30px;
+
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+
+    background: rgba(0, 0, 0, 0.15);
+}
+
+legend {
+    padding: 0 12px;
+
+    color: var(--roxo-claro);
+
+    font-weight: bold;
+}
+
+form p {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #e9e5f5;
+
+    font-weight: 600;
+}
+
+input,
+select {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    color: white;
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+
+    outline: none;
+
+    font: inherit;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+input::placeholder {
+    color: #8f89a3;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--roxo-claro);
+
+    background: rgba(139, 92, 246, 0.08);
+
+    box-shadow:
+        0 0 0 4px rgba(139, 92, 246, 0.12);
+}
+
+select {
+    margin-top: 20px;
+
+    cursor: pointer;
+}
+
+select option {
+    color: #111;
+}
+
+
+/* ================================
+   CHECKBOX
+================================ */
+
+form p:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+
+    accent-color: var(--roxo);
+
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label {
+    margin: 0;
+
+    font-weight: normal;
+
+    cursor: pointer;
+}
+
+
+/* ================================
+   BOTÃO
+================================ */
+
+button {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 25px;
+    padding: 15px 25px;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        var(--roxo),
+        var(--roxo-escuro)
+    );
+
+    border: none;
+    border-radius: 12px;
+
+    font: inherit;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(109, 40, 217, 0.3);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    filter: brightness(1.1);
+
+    box-shadow:
+        0 15px 35px rgba(139, 92, 246, 0.45);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    margin-top: 80px;
+    padding: 45px 20px;
+
+    text-align: center;
+
+    color: #a8a1ba;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    border-top: 1px solid var(--borda);
+}
+
+footer p {
+    margin: 7px 0;
+}
+
+footer a {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    color: var(--roxo-claro);
+
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: color 0.25s ease;
+}
+
+footer a:hover {
+    color: var(--ciano);
+}
+
+
+/* ================================
+   RESPONSIVIDADE
+================================ */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 75px 20px 60px;
+    }
+
+    header h1 {
+        font-size: 2.4rem;
+    }
+
+    nav {
+        gap: 4px;
+        padding: 10px;
+    }
+
+    nav a {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    section {
+        padding: 30px 20px;
+        margin: 40px 0;
+        border-radius: 18px;
+    }
+
+    #palestras article {
+        padding: 22px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th,
+    td {
+        padding: 13px 12px;
+    }
+
+    fieldset {
+        padding: 20px;
+    }
+}
+
+
+/* ================================
+   ACESSIBILIDADE
+================================ */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--ciano);
+    outline-offset: 3px;
+}
+
+
+/* Reduz animações para quem prefere menos movimento */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
 }
